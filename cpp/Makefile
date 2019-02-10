@@ -1,6 +1,6 @@
 # Makefile for jnicc
 
-PROJECTPATH="."
+PROJECTPATH=".."
 OBJS = WrapCoin.o WrapClp.o WrCbcModel.o CbcCompareWolf.o WrCglProbing.o WrCglRedSplit.o WrCglGomory.o WrCbcCutGenerator.o \
        WrCglTwomir.o WrCglKnapsackCover.o WrCglMixedIntegerRounding.o WrCglMixedIntegerRounding2.o
 CXX = g++
