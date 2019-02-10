@@ -27,12 +27,12 @@ LIBS = -lCbc -lCgl -lOsiClp -lOsiCbc \
 	`cat /usr/share/coin/doc/Clp/clp_addlibs.txt` \
 	`cat /usr/share/coin/doc/CoinUtils/coinutils_addlibs.txt`
 
-CLEANFILES = ${OBJS} libWrapCoin.so
+CLEANFILES = ${OBJS} ${PROJECTPATH}/run/libWrapCoin.so
 
 Wrapper: $(OBJS)
 	 $(CXX) $(CXXLINKFLAGS) -shared -o libWrapCoin.so ${OBJS} $(LIBS)
-	 mv libWrapCoin.so run/
-	 ls -thlF --color run/
+	 mv libWrapCoin.so ${PROJECTPATH}/run/
+	 ls -thlF --color  ${PROJECTPATH}/run/
 
 WrapCoin.o: WrapCoin.cpp WrapClp.cpp WrCbcModel.cpp CbcCompareWolf.cpp WrCglProbing.cpp WrCglRedSplit.cpp WrCglGomory.cpp WrCbcCutGenerator.cpp \
 	    WrCglTwomir.cpp WrCglKnapsackCover.cpp WrCglMixedIntegerRounding.cpp WrCglMixedIntegerRounding2.cpp
