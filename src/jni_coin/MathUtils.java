@@ -104,7 +104,7 @@ public class MathUtils implements Globals {
 	/*--------------------------------------------------------------------------*/	
   /**
    * n over k (BigInteger).
-   * Both factors >= 0
+   * Both factors &gt; 0
    *     
    * @param n &gt;= 0
    * @param k &gt;= 0
@@ -139,7 +139,7 @@ public class MathUtils implements Globals {
   /*--------------------------------------------------------------------------*/  
   /**
 	 * n over k
-	 * Both factors >= 0
+	 * Both factors &gt; 0
    * 
    * @param n &gt;= 0
    * @param k &gt;= 0
