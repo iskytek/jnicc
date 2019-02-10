@@ -1,0 +1,74 @@
+Starting jni_coin.Main, Rel. 1.1.7, 2019-02-10 with PID 22832 at Sun Feb 10 15:03:59 CET 2019...
+Library Path is: /usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
+Classpath is   : jnicc.jar
+Shutdown hook attached.
+Log directory not found in jnicc.ini. Using current directory.
+LBZ not found in jnicc.ini. Setting LBZ = -INF
+UBZ not found in jnicc.ini. Setting UBZ = +INF
+SOL not found in jnicc.ini. Using Default.
+
+Loading libraries...
+   WrapCoin...	...success
+-------------------------------
+
+Look for results in ./sample.mps.sol
+Runtime Version: 11.0.2+9-Debian-3bpo91
+Memory info: 
+Total: 134.217.728, Max: 2.090.860.544, Free: 130.424.832
+
+Setting up Coin...
+Setting Cbc log level to 0...
+Number of threads set to 4
+Direction of optimization is MINimize
+Setting Node Comparison...	...O.K
+Reading MpsFile sample.mps...
+sample.mps O.K
+Columns in lpSolver: 4, Rows in lpSolver: 4
+Initial solve...
+
+Setting number strong to 4...
+Adding and configuring cut generators...
+   > Add Gomory( HOW_OFTEN=-1, LIMIT=50 )...
+Branch and bound...
+
+Solution is optimal. Objective value: 2.0
+Cgl Statistics...
+1 cut generators used:
+  > 0. Gomory tried 0 times and created 0 cuts, 0 active.
+       Time in Generator:  0,00 sec.
+
+Tuning info...
+  > 0. Gomory
+   Tuning Info: // Cbc tuning for generator Gomory
+   generator->setHowOften(-1);
+   generator->setSwitchOffIfLessThan(0);
+   generator->setWhatDepth(5);
+   generator->setInaccuracy(0);
+   generator->setTiming(true);
+   generator->setNormal(true);
+   generator->setNeedsOptimalBasis(true);
+
+Cleaning up...
+
+Runtime: 20 ms
+Main.workerStop()...
+Shutting down normally at Sun Feb 10 15:03:59 CET 2019...
+Good-bye.
+Coin0008I q2_n3_R1_s2 read with 0 errors
+Coin0506I Presolve 4 (0) rows, 4 (0) columns and 12 (0) elements
+Clp0006I 0  Obj 0 Primal inf 7,9999996 (4)
+Clp0006I 2  Obj 2
+Clp0000I Optimal - objective value 2
+Clp0032I Optimal objective 2 - 2 iterations time 0,002
+Clp0000I Optimal - objective value 2
+Clp0000I Optimal - objective value 2
+Clp0000I Optimal - objective value 2
+  node parent depth column   value                    obj      inf
+0 solution(s) were found (by branching) at an average depth of 0
+average value of variable being branched on was 0
+0 nodes were cutoff at an average depth of 0 with iteration count of 0
+0 nodes were solved at an average depth of 0 with iteration count of 0
+Down 0 nodes (0 first, 0 second) - 0 cutoff, rest decrease numinf 0 increase obj 0
+Up 0 nodes (0 first, 0 second) - 0 cutoff, rest decrease numinf 0 increase obj 0
+Clp0000I Optimal - objective value 2
+Clp0000I Optimal - objective value 2

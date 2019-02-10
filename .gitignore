@@ -9,10 +9,10 @@
 *.class
 
 # Log file
-*.log
+#*.log
 
 # Covco Solution files
-*.sol
+#*.sol
 
 # Package Files 
 *.jar

@@ -1,0 +1,196 @@
+Starting jni_coin.Main, Rel. 1.1.7, 2019-02-10 with PID 23122 at Sun Feb 10 15:05:15 CET 2019...
+Library Path is: /usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
+Classpath is   : jnicc.jar
+Shutdown hook attached.
+Log directory not found in jnicc.ini. Using current directory.
+Mps File not found in jnicc.ini. Creating internal model.
+LBZ not found in jnicc.ini. Setting LBZ = -INF
+UBZ not found in jnicc.ini. Setting UBZ = +INF
+SOL not found in jnicc.ini. Using Default.
+
+Loading libraries...
+   WrapCoin...	...success
+-------------------------------
+
+Look for results in ./q2_n10_R1_s5.sol
+Runtime Version: 11.0.2+9-Debian-3bpo91
+Memory info: 
+Total: 134.217.728, Max: 2.090.860.544, Free: 130.424.832
+
+Setting up Coin...
+Setting Cbc log level to 0...
+Number of threads set to 4
+Direction of optimization is MINimize
+Setting Node Comparison...	...O.K
+
+Creating internal model using jni_coin.ModGen, Rel. 1.0.5, 2019-02-10
+Problem name is q2_n10_R1_s5
+	Calculating coeffs (vol)...	...O.K.
+	Generating 32 cols...		...O.K.
+	Generating 32 rows...		...O.K.
+ModelName set to q2_n10_R1_s5
+Load from Coin Model...  ...O.K.
+Columns in lpSolver: 32, Rows in lpSolver: 32
+Initial solve...
+
+Setting number strong to 32...
+Adding and configuring cut generators...
+   > Add Gomory( HOW_OFTEN=-1, LIMIT=50 )...
+Branch and bound...
+
+Solution found.
+NSO: Solutions found so far: 1. Best z so far: 103
+-----------------------------------------------
+
+Solution found.
+NSO: Solutions found so far: 2. Best z so far: 102
+-----------------------------------------------
+
+Solution found.
+NSO: Solutions found so far: 3. Best z so far: 100
+-----------------------------------------------
+
+Solution found.
+NSO: Solutions found so far: 4. Best z so far: 99
+-----------------------------------------------
+
+Solution found.
+NSO: Solutions found so far: 5. Best z so far: 98
+-----------------------------------------------
+
+Solution found.
+NSO: Solutions found so far: 6. Best z so far: 97
+-----------------------------------------------
+
+Solution found.
+NSO: Solutions found so far: 7. Best z so far: 96
+-----------------------------------------------
+Coin0506I Presolve 32 (0) rows, 32 (0) columns and 192 (0) elements
+Clp0006I 0  Obj 0 Primal inf 170,66666 (32)
+Clp0006I 32  Obj 93,090909
+Clp0000I Optimal - objective value 93,090909
+Clp0032I Optimal objective 93,09090909 - 32 iterations time 0,002
+Clp0000I Optimal - objective value 93,090909
+Clp0000I Optimal - objective value 93,090909
+Clp0006I 0  Obj 93,090909 Primal inf 5,8181786 (32)
+Clp0006I 32  Obj 93,666876
+Clp0000I Optimal - objective value 93,666876
+Clp0006I 0  Obj 93,666876 Primal inf 1,0814527 (32)
+Clp0006I 32  Obj 93,740078
+Clp0000I Optimal - objective value 93,740078
+Clp0000I Optimal - objective value 93,740078
+Clp0006I 0  Obj 93,740078 Primal inf 0,8749161 (32)
+Clp0006I 32  Obj 93,788094
+Clp0000I Optimal - objective value 93,788094
+Clp0000I Optimal - objective value 93,788094
+Clp0006I 0  Obj 93,788094 Primal inf 0,71859913 (32)
+Clp0006I 32  Obj 93,822891
+Clp0000I Optimal - objective value 93,822891
+Clp0000I Optimal - objective value 93,822891
+Clp0006I 0  Obj 93,822891 Primal inf 0,59865625 (32)
+Clp0006I 32  Obj 93,849517
+Clp0000I Optimal - objective value 93,849517
+Clp0000I Optimal - objective value 93,849517
+Clp0006I 0  Obj 93,849517 Primal inf 0,50463628 (32)
+Clp0006I 32  Obj 93,870623
+Clp0000I Optimal - objective value 93,870623
+Clp0000I Optimal - objective value 93,870623
+Clp0006I 0  Obj 93,870623 Primal inf 0,43040918 (32)
+Clp0006I 32  Obj 93,887822
+Clp0000I Optimal - objective value 93,887822
+Clp0000I Optimal - objective value 93,887822
+Clp0006I 0  Obj 93,887822 Primal inf 0,37109126 (32)
+Clp0006I 32  Obj 93,902142
+Clp0000I Optimal - objective value 93,902142
+Clp0000I Optimal - objective value 93,902142
+Clp0006I 0  Obj 93,902142 Primal inf 0,3229598 (32)
+Clp0006I 32  Obj 93,914269
+Clp0000I Optimal - objective value 93,914269
+Clp0000I Optimal - objective value 93,914269
+Clp0006I 0  Obj 93,914269 Primal inf 0,28339254 (32)
+Clp0006I 32  Obj 93,924682
+Clp0000I Optimal - objective value 93,924682
+Clp0000I Optimal - objective value 93,924682
+Clp0006I 0  Obj 93,924682 Primal inf 0,25050453 (32)
+Clp0006I 32  Obj 93,933725
+Clp0000I Optimal - objective value 93,933725
+Clp0000I Optimal - objective value 93,933725
+Clp0006I 0  Obj 93,933725 Primal inf 0,22296043 (32)
+Clp0006I 32  Obj 93,94166
+Clp0000I Optimal - objective value 93,94166
+Clp0000I Optimal - objective value 93,94166
+Clp0006I 0  Obj 93,94166 Primal inf 0,19978704 (32)
+Clp0006I 32  Obj 93,948688
+Clp0000I Optimal - objective value 93,948688
+Clp0000I Optimal - objective value 93,948688
+Clp0006I 0  Obj 93,948688 Primal inf 0,18027202 (32)
+Clp0006I 32  Obj 93,954969
+Clp0000I Optimal - objective value 93,954969
+Clp0000I Optimal - objective value 93,954969
+Clp0006I 0  Obj 93,954969 Primal inf 0,15981186 (32)
+Clp0006I 32  Obj 93,960481
+Clp0000I Optimal - objective value 93,960481
+Clp0000I Optimal - objective value 93,960481
+Clp0006I 0  Obj 93,960481 Primal inf 0,13612736 (32)
+Clp0006I 32  Obj 93,965117
+Clp0000I Optimal - objective value 93,965117
+Clp0000I Optimal - objective value 93,965117
+Clp0006I 0  Obj 93,965117 Primal inf 0,11280223 (32)
+Clp0006I 32  Obj 93,968908
+Clp0000I Optimal - objective value 93,968908
+Clp0000I Optimal - objective value 93,968908
+Clp0006I 0  Obj 93,968908 Primal inf 0,091150832 (32)
+Clp0006I 32  Obj 93,971933
+Clp0000I Optimal - objective value 93,971933
+Clp0000I Optimal - objective value 93,971933
+Clp0006I 0  Obj 93,971933 Primal inf 0,072118246 (32)
+Clp0006I 32  Obj 93,974299
+Clp0000I Optimal - objective value 93,974299
+Clp0000I Optimal - objective value 93,974299
+Clp0006I 0  Obj 93,974299 Primal inf 0,055941742 (32)
+Clp0006I 32  Obj 93,976115
+Clp0000I Optimal - objective value 93,976115
+Clp0000I Optimal - objective value 93,976115
+Clp0000I Optimal - objective value 103
+Clp0000I Optimal - objective value 102
+Clp0000I Optimal - objective value 100
+Clp0000I Optimal - objective value 99
+Clp0000I Optimal - objective value 98
+Clp0000I Optimal - objective value 97
+Clp0000I Optimal - objective value 96
+  node parent depth column   value                    obj      inf
+     0     -1     0     21   2,937  left  up       93,97612 (   32) ->
+Solution is optimal. Objective value: 96.0
+Cgl Statistics...
+1 cut generators used:
+  > 0. Gomory tried 1009 times and created 8288 cuts, 881 active.
+       Time in Generator:  0,13 sec.
+
+Tuning info...
+  > 0. Gomory
+   Tuning Info: // Cbc tuning for generator Gomory
+   generator->setHowOften(1000001);
+   generator->setSwitchOffIfLessThan(0);
+   generator->setWhatDepth(5);
+   generator->setInaccuracy(0);
+   generator->setTiming(true);
+   generator->setNormal(true);
+   generator->setNeedsOptimalBasis(true);
+
+Cleaning up...
+
+Runtime: 325 ms
+Main.workerStop()...
+Shutting down normally at Sun Feb 10 15:05:15 CET 2019...
+Good-bye.
+ cutoff
+0 solution(s) were found (by branching) at an average depth of 0
+average value of variable being branched on was 2,93675
+1 nodes were cutoff at an average depth of 0 with iteration count of 11867
+0 nodes were solved at an average depth of 0 with iteration count of 0
+Down 0 nodes (0 first, 0 second) - 0 cutoff, rest decrease numinf 0 increase obj 0
+Up 1 nodes (1 first, 0 second) - 1 cutoff, rest decrease numinf 0 increase obj 0
+Clp0000I Optimal - objective value 96
+Clp0006I 0  Obj 93,090909 Primal inf 31,999997 (32)
+Clp0006I 16  Obj 96
+Clp0000I Optimal - objective value 96
