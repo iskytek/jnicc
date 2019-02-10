@@ -40,4 +40,3 @@ core
 *.exe
 *.out
 /bin/
-/run/
