@@ -1,5 +1,4 @@
 /* CbcCompareWolf.hpp
- * Last update: 2019-01-31, wl
  */
 
 #ifndef CbcCompareWolf_H

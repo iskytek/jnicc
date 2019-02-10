@@ -1,5 +1,4 @@
 /* C++ wrapper Klasse für JNI-Coin
- * Version ==> VERSION
  */
 
 #include "jni_coin_Worker.h"
@@ -22,7 +21,7 @@
 #define RC_FAIL   -1
 
 /*---------------------------------------------------------------------------*/
-/* Objekt vom Typ CoinModel anlegen und Pointer als long zurück.
+/* Create CoinModel and return pointer as long.
  */
 JNIEXPORT jlong JNICALL Java_jni_1coin_CoinModel_jni_1new(
 		JNIEnv *, jclass ) {
@@ -39,14 +38,11 @@ JNIEXPORT jlong JNICALL Java_jni_1coin_CoinModel_jni_1new(
 
 
 /*---------------------------------------------------------------------------*/
-/* Objekt wird nicht mehr benötigt und gelöscht.
+/* Delete CoinModel object 
  */
 JNIEXPORT void JNICALL Java_jni_1coin_CoinModel_jni_1delete(
 	       JNIEnv *, jclass, jlong nCoinModel ) {
 
-  //printf( "WrapCoin.Java_jni_1coin_CoinModel_jni_1delete()...\n" );
-  //fflush( stdout );
-  
   CoinModel *p = (CoinModel *) nCoinModel;
   if( p != NULL ) delete p;
 }
@@ -97,57 +93,6 @@ JNIEXPORT void JNICALL Java_jni_1coin_CoinModel_jni_1addRow(
  */
 JNIEXPORT jstring JNICALL Java_jni_1coin_Worker_jni_1getVersion(
 		  JNIEnv * env, jclass ) {
-
-  //printf( "Java_jni_1coin_Worker_jni_1getVersion()...\n" );
-  //fflush( stdout );
   return env->NewStringUTF( VERSION );
 }
 
-/*******************************************************************************
-JNIEXPORT jint JNICALL Java_jni_1horst_Main_jni_1print( 
-	       JNIEnv *, jclass, jint nWidth, jint nPrecision, jdouble dx ) {
-
-  char fmt[ 30 ];
-  sprintf( fmt, "%%%d.%df", nWidth, nPrecision );
-  jint rc = printf( fmt, dx );
-
-  return rc;
-}
-
-JNIEXPORT jstring JNICALL Java_jni_1horst_Main_jni_1give_1take (
-                  JNIEnv *env, jclass, jstring jsIn ) {
-
-  if( jsIn == NULL ) jsIn = env->NewStringUTF( "Wrapper sagt: Input ist Nullstring." );
-
-  const char * str = env->GetStringUTFChars( jsIn, NULL  );
-  printf( "Das ist angekommen: %s\n", str );  
-  fflush( stdout );
-  env->ReleaseStringUTFChars( jsIn, str );
-
-  return env->NewStringUTF( VERSION );
-}
-
-* Die Funktion überprüft einen String Pointer auf NULL und generiert ggf.
- * eine Exception.
- *
-JNIEXPORT jint JNICALL Java_jni_1horst_Main_jni_1checkNP(
-	       JNIEnv* env, jobject, jstring jsIn ) {
-
-  int rc = RC_SUCCESS;
-
-  if( jsIn == NULL ) {
-    jsIn = env->NewStringUTF( "Wrapper sagt: Input ist Nullstring." );
-    const char* sIn = env->GetStringUTFChars( jsIn, NULL  );
-    fprintf( stderr, "\n%s\n", sIn ); fflush( stderr );
-    rc = RC_FAIL;
-    env->ThrowNew( env->FindClass( "java/lang/NullPointerException" ),
-		   "Null Pointer geht gar nicht! rc = RC_FAIL." );
-  } else {
-    const char* sIn = env->GetStringUTFChars( jsIn, NULL  );
-    printf( "Wrapper.checkNP(): %s\n", sIn ); 
-    fflush( stdout );
-  }	  
-  
-  return rc;
-}
-*/

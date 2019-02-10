@@ -1,5 +1,4 @@
 /* JNI/C++ wrapper Klasse für CbcModel
- * Version ==> VERSION
  */
 
 #include "jni_coin_OsiClpSolverInterface.h"
@@ -59,13 +58,11 @@ JNIEXPORT void JNICALL Java_cbc_CbcModel_jni_1addCutGomory(
 }*/
 
 /*---------------------------------------------------------------------------*/
-/* Callback Funktionen setzen.
+/* Set call back method.
  */
 JNIEXPORT jlong JNICALL Java_cbc_CbcCompareWolf_jni_1setNodeComparison(
 	        JNIEnv * env, jobject jobCbcCompareWolf, jlong jlCbcModel ) {
 
-  // printf( "WrapCbc::setNodeComparison()...\n" ); fflush( stdout );
-  
   CbcModel *p = (CbcModel *) jlCbcModel;
   CbcCompareWolf *pWolf = new CbcCompareWolf( env, jobCbcCompareWolf );
   if( (p != NULL) && (pWolf != NULL) ) p->setNodeComparison( pWolf  );
@@ -111,15 +108,10 @@ JNIEXPORT jint JNICALL Java_cbc_CbcModel_jni_1getNumberThreads(
 	
   jint noThreads = 0;
 
-  //printf( "WrapCbc.Java_cbc_CbcModel_jni_1getNumberThreads()...\n" );
-  // fflush( stdout );
-  
   CbcModel *p = (CbcModel *) jlCbcModel;
   if( p == NULL ) {
     fprintf( stderr, "CbcModel ist null!" ); fflush( stderr );
   } else noThreads = p->getNumberThreads();
-
-  //printf( "WrapCbc. Number of threads: %d\n", noThreads ); fflush( stdout );
 
   return noThreads;
 }
@@ -130,9 +122,6 @@ JNIEXPORT jint JNICALL Java_cbc_CbcModel_jni_1getNumberThreads(
 JNIEXPORT void JNICALL Java_cbc_CbcModel_jni_1setLogLevel( 
 	       JNIEnv *, jclass, jlong jlCbcModel, jint jiLogLevel ) {
 	
-  //printf( "WrapCbc.CbcModel.setLogLevel( %d )...\n", (int) jiLogLevel );
-  //fflush( stdout );
-
   CbcModel *pCbcModel = (CbcModel *) jlCbcModel;
   pCbcModel->setLogLevel( (int) jiLogLevel );
 }
@@ -143,9 +132,6 @@ JNIEXPORT void JNICALL Java_cbc_CbcModel_jni_1setLogLevel(
 JNIEXPORT void JNICALL Java_cbc_CbcModel_jni_1branchAndBound( 
 	       JNIEnv *, jclass, jlong jlCbcModel, jint jiStatistics ) {
 
-  //printf( "WrapCbc.CbcModel.branchAndBound( %d )...\n", (int) jiStatistics );
-  //fflush( stdout );
-  
   CbcModel *pCbcModel = (CbcModel *) jlCbcModel;
   if( jiStatistics > 0 ) pCbcModel->branchAndBound( (int) jiStatistics );
   else                   pCbcModel->branchAndBound();
@@ -178,13 +164,9 @@ JNIEXPORT void JNICALL Java_cbc_CbcModel_jni_1assignSolver(
   CbcModel           *pCbcModel = (CbcModel *) nCbcModel;
   OsiSolverInterface *pLpSolver = (OsiClpSolverInterface *) nLpSolver;
 
-  if( jbDeleteSolver ) {
-    //printf( "nDeleteSolver is true.\n" ); fflush( stdout );
-    pCbcModel->assignSolver( pLpSolver );
-  } else {
-    //printf( "nDeleteSolver is false.\n" ); fflush( stdout );
-    pCbcModel->assignSolver( pLpSolver, false );
-  }
+  if( jbDeleteSolver ) pCbcModel->assignSolver( pLpSolver ); // true
+  else                 pCbcModel->assignSolver( pLpSolver, false );
+  
 }
 
 /*---------------------------------------------------------------------------*/
@@ -203,9 +185,6 @@ JNIEXPORT void JNICALL Java_cbc_CbcModel_jni_1setNumberStrong(
 JNIEXPORT void JNICALL Java_cbc_CbcModel_jni_1setNumberThreads( 
 	       JNIEnv *, jclass, jlong nCbcModel, jint noThreads ) {
 
-  /*printf( "WrapCbc.Java_cbc_CbcModel_jni_1setNumberThreads( %d )...\n", 
-	   noThreads ); fflush( stdout );*/
-  
   CbcModel *p = (CbcModel *) nCbcModel;
   if( p == NULL ) {
     fprintf( stderr, "CbcModel ist null!" );
@@ -219,9 +198,6 @@ JNIEXPORT void JNICALL Java_cbc_CbcModel_jni_1setNumberThreads(
 JNIEXPORT jlong JNICALL Java_cbc_CbcModel_jni_1new(
 		JNIEnv *, jclass ) {
 
-  //printf( "WrapCbc.Java_cbc_CbcModel_jni_1new()...\n" );
-  //fflush( stdout );
-  
   CbcModel *p = new CbcModel();
   if( p == NULL ) fprintf( stderr, "CbcModel ist null!" );
   fflush( stderr );
@@ -243,7 +219,7 @@ JNIEXPORT void JNICALL Java_cbc_CbcModel_jni_1delete(
 }
 
 /*---------------------------------------------------------------------------*/
-/* Optimalen Zielfunktionswert holen.
+/* Get optimal z value.
  */ 
 JNIEXPORT jdouble JNICALL Java_cbc_CbcModel_jni_1getObjValue( 
 			  JNIEnv *, jclass, jlong jlCbcModel ) {
@@ -272,7 +248,7 @@ JNIEXPORT jdouble JNICALL Java_cbc_CbcModel_jni_1getBestPossibleObjValue(
 }
 
 /*---------------------------------------------------------------------------*/
-/* Optimalität prüfen.
+/* Check if solution is optimal.
  */ 
 JNIEXPORT jboolean JNICALL Java_cbc_CbcModel_jni_1isProvenOptimal(
 		   JNIEnv *, jclass, jlong jlCbcModel ) {

@@ -1,5 +1,4 @@
 /* JNI/C++ wrapper class for CglProbing
- * Version ==> VERSION
  */
 
 #include "cgl_CglRedSplit.h"
@@ -16,8 +15,6 @@
 JNIEXPORT jlong JNICALL Java_cgl_CglRedSplit_jni_1new( 
 		JNIEnv *, jclass ) {
 
-  //printf( "WrCglRedSplit.new()...\n" ); fflush( stdout );
-  
   CglRedSplit *p = new CglRedSplit();
   if( p == NULL ) fprintf( stderr, "CglRedSplit is null!" );
   fflush( stderr );

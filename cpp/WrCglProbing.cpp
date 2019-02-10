@@ -1,5 +1,4 @@
 /* JNI/C++ wrapper class for CglProbing
- * Version ==> VERSION
  */
 
 #include "cgl_CglProbing.h"

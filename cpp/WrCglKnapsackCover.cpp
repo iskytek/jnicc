@@ -1,5 +1,4 @@
 /* JNI/C++ wrapper class for CglKnapsackCover
- * Version ==> VERSION
  */
 
 #include "cgl_CglKnapsackCover.h"

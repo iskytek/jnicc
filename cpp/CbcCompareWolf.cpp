@@ -1,6 +1,4 @@
 /* CbcCompareWolf.cpp
- * Schnittstellenklasse zwischen JNI und Coin
- * Last update: 2019-02-09, wl
  */
 
 #include <thread>
@@ -30,11 +28,10 @@ CbcCompareWolf::CbcCompareWolf( JNIEnv *env, jobject jobThis ) :
 
   env->GetJavaVM( &pJVM_ );
   
-  // Anhand von jobThis kann ein Pointer auf die Klasse ermittelt werden:
+  // jobThis get's you a pointer to the java class:
   jclass jcCompareWolf = env->GetObjectClass( jobThis );
   jclThis_  = (jclass) env->NewGlobalRef( jcCompareWolf );
   jobThis_  =          env->NewGlobalRef( jobThis       );
-  //std::cout << "jobThis_: " << jobThis_ << "\n";
 }
 
 // Constructor with weight
@@ -60,14 +57,11 @@ CbcCompareWolf::CbcCompareWolf( const CbcCompareWolf& cbcCompareWolf ) : CbcComp
 
 // Clone
 CbcCompareBase* CbcCompareWolf::clone() const {
-  //printf( "CbcCompareWolf::clone()\n" ); fflush( stdout );
   return new CbcCompareWolf( *this );
 }
 
 // Assignment operator 
 CbcCompareWolf& CbcCompareWolf::operator=( const CbcCompareWolf& cbcCompareWolf ) {
-
-  printf( "CbcCompareWolf::operator=()\n" ); fflush( stdout );
 
   if( this != &cbcCompareWolf ) {
     
@@ -84,27 +78,7 @@ CbcCompareWolf& CbcCompareWolf::operator=( const CbcCompareWolf& cbcCompareWolf 
 }
 
 // Destructor 
-CbcCompareWolf::~CbcCompareWolf() {
-
-  printf( "CbcCompareWolf::~CbcCompareWolf()\n" ); fflush( stdout );
-
-  /*int rc = -1;
-  JNIEnv *pEnv; // Achtung: Bei neuer Thread: pJVM_>AttachCurrentThread(...);
-  if( pJVM_ != NULL ) rc = pJVM_->GetEnv( (void**)& pEnv, JNI_VERSION_10 );
-  else fprintf( stderr, "Fehler bei GetEnv. pJVM_ ist null!\n" ); fflush( stderr ); 
-
-  if( rc == JNI_OK ) {
-    std::cout << "JNI_OK" << "\n"; fflush( stdout );
-    pEnv->DeleteGlobalRef( jclThis_ );
-    pEnv->DeleteGlobalRef( jobThis_ );
-  }
-  else if( rc == JNI_EDETACHED ) {
-     fprintf( stderr, "Fehler bei GetEnv. JNI_EDETACHED!!\n" ); fflush( stderr ); 
-  }
-  else if( rc == JNI_EVERSION ) {
-     fprintf( stderr, "Fehler bei GetEnv. JNI_EVERSION!!\n" ); fflush( stderr ); 
-  }*/
-}
+CbcCompareWolf::~CbcCompareWolf() { }
 
 //------------------------------------------------------------------------------
 // Returns true if y better than x 
@@ -155,7 +129,7 @@ bool CbcCompareWolf::newSolution( CbcModel* pCbcModel, double objectiveAtContinu
   if( pCbcModel != NULL ) {
     int noSolutions = pCbcModel->getSolutionCount(); 
     //printf( "CbcCompareWolf::newSolution( %d )...\n", noSolutions ); 
-    JNIEnv *pEnv; // Achtung: Bei neuer Thread: pJVM_>AttachCurrentThread(...);
+    JNIEnv *pEnv; // Attention: if new thread: pJVM_>AttachCurrentThread(...);
     pJVM_->GetEnv( (void**)& pEnv, JNI_VERSION_10 );
     if( (pJVM_->GetEnv( (void**)& pEnv, JNI_VERSION_10 )) == JNI_OK ) {
       jmethodID jmIDnewSolution = pEnv->GetMethodID( jclThis_, "newSolution"   , "(JI)Z" );
@@ -174,23 +148,19 @@ bool CbcCompareWolf::every1000Nodes( CbcModel* pCbcModel, int noNodes ) {
    
   bool bResort = false;
 
-  /* printf( "CbcCompareWolf::every1000Nodes()...\n" );
-  std::cout << "Thread ID: " << std::this_thread::get_id() << "\n";
-  fflush( stdout );*/
+  /* printf( "CbcCompareWolf::every1000Nodes()...\n" ); fflush( stdout );*/
 
-  JNIEnv *pEnv; // Achtung: Bei neuer Thread: pJVM_>AttachCurrentThread(...);
-  //std::cout << "pEnv: " << pEnv << "\n"; fflush( stdout );
+  JNIEnv *pEnv; // Attention: if new thread: pJVM_>AttachCurrentThread(...);
   if( (pJVM_->GetEnv( (void**)& pEnv, JNI_VERSION_10 )) == JNI_OK ) {
     //std::cout << "JNI_OK" << "\n";
     jmethodID jmID1000 = pEnv->GetMethodID( jclThis_, "every1000Nodes", "(JIII)I" );
     int nNewCmpMode = pEnv->CallIntMethod( jobThis_, jmID1000, pCbcModel,
 		            noNodes, pCbcModel->tree()->size(), nMaxDepth_ ); 
-    // pCbcModel->currentDepth() liefert unsinnige Werte und pCbcModel->tree()->lastDepth
-    // ist erst ab Version 2.9 verfügbar.
+    // pCbcModel->tree()->lastDepth (new in Rel.2.9)
 
     if( nNewCmpMode != nCmpMode_ ) { nCmpMode_ = nNewCmpMode; bResort = true; }
   }
-  else { fprintf( stderr, "every1000Nodes(). Fehler bei GetEnv!!\n" ); fflush( stderr ); } 
+  else { fprintf( stderr, "every1000Nodes(). Error at GetEnv!!\n" ); fflush( stderr ); } 
   /*else if( rc == JNI_EDETACHED ) {
      fprintf( stderr, "Fehler bei GetEnv. JNI_EDETACHED!!\n" ); fflush( stderr ); 
   } else if( rc == JNI_EVERSION ) {

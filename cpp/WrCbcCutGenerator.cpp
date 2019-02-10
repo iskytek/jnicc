@@ -1,5 +1,4 @@
 /* JNI/C++ wrapper Klasse für CbcModel
- * Version ==> VERSION
  */
 
 #include "cbc_CbcCutGenerator.h"

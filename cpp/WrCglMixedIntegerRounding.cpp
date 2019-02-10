@@ -1,5 +1,4 @@
 /* JNI/C++ wrapper class for CglMixedIntegerRounding
- * Version ==> VERSION
  */
 
 #include "cgl_CglMixedIntegerRounding.h"

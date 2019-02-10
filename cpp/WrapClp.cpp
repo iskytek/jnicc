@@ -1,5 +1,4 @@
-/* C++ wrapper Klasse für OsiClpSolverInterface
- * Version ==> VERSION
+/* C++ wrapper class for OsiClpSolverInterface
  */
 
 #include "jni_coin_OsiClpSolverInterface.h"
@@ -27,7 +26,7 @@ JNIEXPORT void JNICALL Java_jni_1coin_OsiClpSolverInterface_jni_1setObjSense(
 }
 
 /*---------------------------------------------------------------------------*/
-/* Gesamtes Modell von Coin in LPSolver laden.
+/* Load model from Coin to LPSolver 
  */
 JNIEXPORT jint JNICALL Java_jni_1coin_OsiClpSolverInterface_jni_1loadFromCoinModel(
 	       JNIEnv *, jclass, jlong jlSolver, jlong jlCoinModel, 
@@ -45,15 +44,11 @@ JNIEXPORT jint JNICALL Java_jni_1coin_OsiClpSolverInterface_jni_1loadFromCoinMod
 }
 
 /*---------------------------------------------------------------------------*/
-/* Es wird ein Solver Objekt angelegt und der Pointer auf das Objekt als
- * long zurück gegeben. 
+/* Create solver object and return pointer to object
  */
 JNIEXPORT jlong JNICALL Java_jni_1coin_OsiClpSolverInterface_jni_1new(
            	JNIEnv *, jclass ) {
 
-  //printf( "WrapCoin.Java_jni_1coin_OsiClpSolverInterface_jni_1new()...\n" );
-  //fflush( stdout );
-  
   OsiClpSolverInterface *pSolver = new OsiClpSolverInterface();
   if( pSolver == NULL ) fprintf( stderr, "OsiClpSolverInterface ist null!" );
   fflush( stderr );
@@ -134,22 +129,16 @@ JNIEXPORT jstring JNICALL Java_jni_1coin_OsiClpSolverInterface_jni_1getModelName
 JNIEXPORT void JNICALL Java_jni_1coin_OsiClpSolverInterface_jni_1delete(
 	       JNIEnv *, jclass, jlong nSolver ) {
 
-  //printf( "WrapCoin.Java_jni_1coin_OsiClpSolverInterface_jni_1delete()...\n" );
-  //fflush( stdout );
-  
   OsiClpSolverInterface *p = (OsiClpSolverInterface *) nSolver;
   if( p != NULL ) delete p;
 }
 
 /*---------------------------------------------------------------------------*/
-/* Solver Objekt wird nicht mehr benötigt und gelöscht.
+/* Release solver object.
  */
 JNIEXPORT void JNICALL Java_jni_1coin_OsiClpSolverInterface_jni_1releaseClp(
                JNIEnv *, jclass, jlong nSolver ) {
 
-  //printf( "WrapCoin.Java_jni_1coin_OsiClpSolverInterface_jni_1releaseClp()...\n" );
-  //fflush( stdout );
-  
   OsiClpSolverInterface *pSolver = (OsiClpSolverInterface *) nSolver;
   if( pSolver != NULL ) pSolver->releaseClp();
 }
