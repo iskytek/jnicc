@@ -19,7 +19,7 @@ Parameters:
  3. R: covering radius (Volume), 1 <= R <= n,
  4. s: a decomposition factor, determining the number of generated variables 
        (= Math.pow( q, s ), 1 <= s <= n       
-The solution of the calculation is an lower bound for the number of codewords
+The solution of the calculation is a lower bound for the number of codewords
 needed to cover the Hamming space.
 
 You specify your parameters in the file "jnicc.ini", which is read at startup. 
