@@ -17,12 +17,12 @@
 
 #include "CbcCompareWolf.hpp"
 
-#define VERSION "WrCbcModel. Rel. 1.0.6, 2019-02-03"
+#define VERSION "WrCbcModel. Rel. 1.0.7, 2019-02-10"
 #define RC_SUCCESS 0
 #define RC_FAIL   -1
 
 /*---------------------------------------------------------------------------*/
-/* Add cut gererator.
+/* Add cut generator.
  */
 JNIEXPORT void JNICALL Java_cbc_CbcModel_jni_1addCutGenerator( 
 	       JNIEnv *pEnv, jclass, jlong jlCbcModel, jlong jlGenerator, 
