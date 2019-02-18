@@ -13,8 +13,7 @@ CXXFLAGS = -c -O3 -fPIC -fomit-frame-pointer -pipe -DNDEBUG -Wpedantic -Wparenth
 CXXLINKFLAGS = -Wl,--rpath -Wl,/lib
 
 # Directory COIN header files
-#COININCDIR = /usr/include/coin
-COININCDIR = /opt/Cbc/build/include/coin
+COININCDIR = /usr/include/coin
 
 # Directory jni.h 
 JNIHDIR = /usr/lib/jvm/java-11-openjdk-amd64/include
@@ -22,9 +21,11 @@ JNIHDIR = /usr/lib/jvm/java-11-openjdk-amd64/include
 # Directory jni_md.h 
 JNILINUXDIR = ${JNIHDIR}/linux
 
-# Libraries necessary to link with Cbc
-# LIBS = -L/usr/lib -lCbc -lClp -lOsi -Cgl -OsiClp -OsiCbc -lCoinUtils -lbz2 -lz -llapack -lblas -lm
-LIBS = -L/opt/Cbc/build/lib -lCbc -lClp -lOsi -lCgl -lOsiClp -lOsiCbc -lCoinUtils -lbz2 -lz -llapack -lblas -lm
+# Libraries necessary to link with Clp
+LIBS = -lCbc -lCgl -lOsiClp -lOsiCbc \
+	`cat /usr/share/coin/doc/Osi/osi_addlibs.txt` \
+	`cat /usr/share/coin/doc/Clp/clp_addlibs.txt` \
+	`cat /usr/share/coin/doc/CoinUtils/coinutils_addlibs.txt`
 
 CLEANFILES = ${OBJS} ${PROJECTPATH}/run/libWrapCoin.so
 

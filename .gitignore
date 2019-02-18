@@ -10,6 +10,7 @@
 
 # Log file
 #*.log
+.old
 
 # Covco Solution files
 #*.sol
@@ -25,7 +26,7 @@
 
 # JVM crash logs
 hs_err_pid*
-core
+core*
 
 # Compiled Object files
 *.slo
