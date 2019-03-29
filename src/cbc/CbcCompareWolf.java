@@ -131,7 +131,7 @@ public class CbcCompareWolf {
         noNzInSol++;
         nBestZSoFar += nVal;
         worker.util.writeFile( "x" + j + "=" + nVal + " ", false );
-        if( (noNzInSol % VALUES_PER_LINE) == 0 ) worker.util.writeFile( "" );
+        if( (noNzInSol % VALUES_PER_LINE) == 0 ) worker.util.writeFile( " \\" );
       }           
     }
     if( (noNzInSol % VALUES_PER_LINE) != 0 ) worker.util.writeFile( "" );
