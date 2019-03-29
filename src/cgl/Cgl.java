@@ -46,7 +46,7 @@ public class Cgl {
   public int getLimit()        { return iLimit; }
   public void setLimit( int n) { iLimit = n;    }
   
-  public Cut getCut()      { return cut;       }
+  public Cut getCut(){ return cut; }
   
   /*--------------------------------------------------------------------------*/
   public static void printCglStatistics( CbcModel cbcModel ) {
@@ -71,6 +71,7 @@ public class Cgl {
                               curGenerator.timeInCutGenerator() );
       }      
     } else out.println( "No cut generators used." );
+    out.flush();
   }
   
   /*--------------------------------------------------------------------------*/

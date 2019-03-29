@@ -21,7 +21,7 @@ import cgl.*;
  */
 public class Worker implements Runnable, Globals { 
   
-  final String VERSION = getClass().getName() + ", Rel. 1.2.4, 2019-02-10";
+  final String VERSION = getClass().getName() + ", Rel. 1.2.5, 2019-03-29";
 
   final int    NO_THREADS;
   final int    CBC_LOG_LEVEL;
@@ -168,7 +168,7 @@ public class Worker implements Runnable, Globals {
         cbcModel.setBestSolution( makeBestSol( noColsInModel ));
       }
       
-      final int NUM_STRONG = noColsInModel;
+      final int NUM_STRONG = 20; //noColsInModel;
       util.writePrint( "\nSetting number strong to " + NUM_STRONG + "..." );
       //cbcModel.setNumberStrong( CbcModel.DISABLE_STRONG_BRANCHING );
       cbcModel.setNumberStrong( NUM_STRONG );

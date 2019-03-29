@@ -92,10 +92,11 @@ public class CbcCompareWolf {
         if( nBestZSoFar == Integer.MAX_VALUE ) out.print( "-" ); 
         else                                   out.print( nBestZSoFar );     
         out.printf( " mem=%,d t=", Runtime.getRuntime().freeMemory() );
-        out.println( MathUtils.formatTime( lNow- worker.startZeit));                
+        out.println( MathUtils.formatTime( lNow- worker.startZeit));
+        out.flush();
       } 
       
-      if( noNodes == 1_000 ) Cgl.printCglStatistics( cbcModel );
+      if( noNodes == 1_000 ) Cgl.printCglStatistics( cbcModel );      
       
       /*lNow = currentTimeMillis();
       if( (lNow - lastTuningPrint)>= GENERATOR_SEC_MILLI ) {
