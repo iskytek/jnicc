@@ -42,3 +42,4 @@ core
 *.out
 /bin/
 /javadoc/
+/sve

@@ -155,8 +155,9 @@ bool CbcCompareWolf::every1000Nodes( CbcModel* pCbcModel, int noNodes ) {
     //std::cout << "JNI_OK" << "\n";
     jmethodID jmID1000 = pEnv->GetMethodID( jclThis_, "every1000Nodes", "(JIII)I" );
     int nNewCmpMode = pEnv->CallIntMethod( jobThis_, jmID1000, pCbcModel,
-		            noNodes, pCbcModel->tree()->size(), nMaxDepth_ ); 
-    // pCbcModel->tree()->lastDepth (new in Rel.2.9)
+		            noNodes, pCbcModel->tree()->size(), pCbcModel->tree()->lastDepth() ); 
+    // nMaxDepth_ (Rel. < 2.9) 
+    // pCbcModel->tree()->lastDepth() (new in Rel.2.9)
 
     if( nNewCmpMode != nCmpMode_ ) { nCmpMode_ = nNewCmpMode; bResort = true; }
   }
